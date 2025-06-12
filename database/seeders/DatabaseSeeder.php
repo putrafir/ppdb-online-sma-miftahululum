@@ -17,14 +17,26 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        AsalSekolah::factory(20)->create();
+        AsalSekolah::factory()->create([
+            'provinsiSMP' => fake()->state(),
+            'asalSMP' => 'MTS Miftahul Ulum',
+            'kotaSMP' => "Banyuwangi",
+            'alamatSMP' => fake()->address(),
+        ]);
+        AsalSekolah::factory()->create([
+            'provinsiSMP' => fake()->state(),
+            'asalSMP' => 'MTS Nurut Takwa',
+            'kotaSMP' => "Banyuwangi",
+            'alamatSMP' => fake()->address(),
+        ]);
 
         ParentDb::factory(20)->create();
-        // Berkas::factory(20)->create();
+        Berkas::factory(20)->create();
         Pendaftar::factory(20)->create();
         // User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
+        //     'username' => 'Test User',
+        //     'email' => 'test@gmail.com',
+        //     'password' => 'password',
         // ]);
     }
 }
